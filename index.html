@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ALTA • AI Study Room</title>
+    <meta
+      name="description"
+      content="ALTA is a responsive 3D gamified AI Study Room with a multilingual voice AI tutor, live 3D monitor screen share, focus tools, and Teacher/Student classroom mode."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://js.puter.com/v2/"></script>
+    <script type="module" crossorigin src="./assets/index-Dkhb4cqh.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-DtLG7cxE.css">
+  </head>
+  <body>
+    <div id="app">
+      <canvas id="scene"></canvas>
+
+      <div id="loadingOverlay" class="loading-overlay">
+        <div class="loading-card glass">
+          <div class="loading-eyebrow">ALTA study room</div>
+          <h1>Streaming your cozy 3D desk...</h1>
+          <p id="loadingStatus">Loaded 0 / 169 assets</p>
+          <div class="progress-track">
+            <div id="progressBar" class="progress-bar"></div>
+          </div>
+        </div>
+      </div>
+
+      <button id="backToRoom" class="back-to-room" hidden>Recenter Room</button>
+      <div id="alarmNotice" class="room-alarm glass" hidden>
+        <span id="alarmMessage" role="alert"></span>
+        <button id="playAlarm" class="secondary-btn" type="button" hidden>Play Chime</button>
+        <button id="dismissAlarm" class="primary-btn">Dismiss Alarm</button>
+      </div>
+      <button id="guideButton" class="icon-btn guide-toggle" type="button" aria-label="Quick Room Guide" title="Quick Room Guide">?</button>
+      <aside id="guideCard" class="guide-card glass" hidden aria-label="Quick Room Guide">
+        <div class="popover-head"><h2>Quick Room Guide</h2><button id="guideDismiss" class="icon-btn" type="button" aria-label="Close guide">✕</button></div>
+        <ul>
+          <li><strong>Door</strong> Enter / Exit the room</li>
+          <li><strong>Monitors</strong> AI Tutor &amp; Study Hub</li>
+          <li><strong>Shelf</strong> All Files, Images &amp; Drive Links</li>
+          <li><strong>Book / Diary</strong> Current Study</li>
+          <li><strong>Pen Cup</strong> Draw &amp; Notes</li>
+          <li><strong>Calendar</strong> Calendar &amp; Alarms</li>
+          <li><strong>Coffee Mug</strong> Study Timer</li>
+          <li><strong>Console</strong> Play Mode Quiz</li>
+          <li><strong>Chandelier</strong> Lights</li>
+          <li><strong>Headset</strong> Voice Mic</li>
+        </ul>
+        <p class="guide-hint">Orbit with drag, zoom with the wheel or pinch. You only see this on your first visit.</p>
+      </aside>
+      <div id="listeningBadge" class="pill mic-badge" role="status" hidden style="position:fixed;bottom:max(1rem, env(safe-area-inset-bottom));left:max(1rem, env(safe-area-inset-left));z-index:20;box-shadow:0 0 18px #8a7dff;pointer-events:none">● Listening</div>
+      <div id="propToast" class="toast-banner glass" role="status" hidden style="pointer-events:auto;animation:none"></div>
+      <aside id="lightingPopover" class="lighting-popover glass hidden" aria-label="Lighting and themes">
+        <div class="popover-head"><h2>Lighting &amp; Themes</h2><button id="closeLightingPopover" class="icon-btn" aria-label="Close lighting">✕</button></div>
+        <div id="themePresetGrid" class="theme-preset-grid"></div>
+        <div class="lighting-custom-controls">
+          <label>Ceiling light <button id="ceilingLightPower" type="button" class="hud-btn" aria-pressed="true">On</button></label>
+          <label>Color <input id="ceilingColorInput" type="color" value="#ffdfb8" /></label>
+          <label>Brightness <input id="ceilingIntensityInput" type="range" min="0" max="100" step="0.1" /><output id="ceilingIntensityOutput"></output></label>
+        </div>
+        <div class="save-lighting-row"><button id="saveLighting" class="primary-btn">Save Lighting</button><span id="lightingSaved" class="save-toast" role="status" hidden></span></div>
+      </aside>
+
+      <div id="panelBackdrop" class="panel-backdrop hidden"></div>
+      <aside id="sidePanel" class="side-panel glass" aria-hidden="true">
+        <div class="panel-head">
+          <div>
+            <div id="panelEyebrow" class="panel-eyebrow">ALTA Module</div>
+            <h2 id="panelTitle">Study Room</h2>
+            <p id="panelSubtitle">Click an interactive object in the room to begin.</p>
+          </div>
+          <button id="closePanel" class="icon-btn" aria-label="Close panel">✕</button>
+        </div>
+        <div id="panelContent" class="panel-content"></div>
+      </aside>
+    </div>
+
+  </body>
+</html>
